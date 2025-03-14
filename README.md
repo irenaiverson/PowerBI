@@ -79,3 +79,6 @@ RETURN result
 - Multiple data sources integrated for a comprehensive analysis.
 - Custom DAX-based slicer for KPI switching to dynamically change between Sales, Quantity, and Gross Profit.
 - Year selection functionality for toggling between 2022 and 2023 using a standard slicer.
+
+  SCREENSHOT
+![image](https://github.com/user-attachments/assets/86111db5-95aa-49bc-aed1-d3eb33da5a75)
