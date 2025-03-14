@@ -52,18 +52,21 @@ This measure ensures that when a user selects a metric from the slicer (Sales, Q
 Power BI has built-in slicers, but they cannot switch between different measures (e.g., Sales, Quantity, Gross Profit). Instead, we created a disconnected table and used DAX to dynamically select the chosen metric.
 This approach ensures that all visuals update correctly when switching between KPIs. 
 
-First of all, a slicer table was created. The slicer table contains predefined options:
+- First of all, a slicer table was created. The slicer table contains predefined options:
+  
 ```SlicerTable = DATATABLE("Values", STRING,{{"Sales"},{"Quantity"},{"Gross Profit"}})```
 
-This measure allows to select between different KPIs (Sales, Quantity, Gross Profit) using a slicer. In other words, users can seamlessly switch between different metrics without modifying the report structure
+- This measure allows to select between different KPIs for prior year (Sales, Quantity, Gross Profit) using a slicer. In other words, users can seamlessly switch between different metrics without modifying the report structure
 
-```S_PYTD = 
-VAR selected_value = SELECTEDVALUE(Slc_values[Values])
-VAR result = SWITCH(selected_value,
-    "Sales", [PYTD_Sales],
-    "Quantity", [PYTD_Quantity],
-    "Gross Profit", [PYTD_GrossProfit],
-    BLANK())RETURN result```
+```S_PYTD = VAR selected_value = SELECTEDVALUE(Slc_values[Values]) VAR result = SWITCH(selected_value, "Sales", [PYTD_Sales],"Quantity", [PYTD_Quantity],"Gross Profit", [PYTD_GrossProfit],BLANK())RETURN result```
+
+- This measure allows to select between different KPIs for current year
+
+  ```S_YTD = VAR selected_value = SELECTEDVALUE(Slc_values[Values]) VAR result = SWITCH(selected_value, "Sales", [YTD_Sales],"Quantity", [YTD_Quantity],"Gross Profit", [COGs],BLANK())RETURN result```
+
+- This measure allows analysis of current Year-to-dateto prior year-to-date
+
+```YTD vs PYTD = [S_YTD]-[S_PYTD]```
 
 ### Insights & Findings
 - YTD Performance: The total YTD sales amount is $13M, with a GP% of 39.62%.
