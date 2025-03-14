@@ -1,4 +1,4 @@
-# Power BI Portfolio Project: YTD vs PYTD Sales Analysis
+# Power BI Project: YTD vs PYTD Sales Analysis
 
 ## Project Overview
 
@@ -57,15 +57,13 @@ First of all, a slicer table was created. The slicer table contains predefined o
 
 This measure allows to select between different KPIs (Sales, Quantity, Gross Profit) using a slicer. In other words, users can seamlessly switch between different metrics without modifying the report structure
 
-S_PYTD = 
+```S_PYTD = 
 VAR selected_value = SELECTEDVALUE(Slc_values[Values])
 VAR result = SWITCH(selected_value,
     "Sales", [PYTD_Sales],
     "Quantity", [PYTD_Quantity],
     "Gross Profit", [PYTD_GrossProfit],
-    BLANK()
-)
-RETURN result
+    BLANK())RETURN result```
 
 ### Insights & Findings
 - YTD Performance: The total YTD sales amount is $13M, with a GP% of 39.62%.
@@ -81,4 +79,9 @@ RETURN result
 - Year selection functionality for toggling between 2022 and 2023 using a standard slicer.
 
   SCREENSHOT
-![image](https://github.com/user-attachments/assets/86111db5-95aa-49bc-aed1-d3eb33da5a75)
+![Screenshot (35)](https://github.com/user-attachments/assets/6c39786a-1c98-491f-82cd-94872bf505f3)
+![Screenshot (36)](https://github.com/user-attachments/assets/117399e2-9653-4ac0-beb8-bd9bfa259906)
+
+
+
+
