@@ -49,7 +49,7 @@ SELECTEDVALUE measure ensures that when a user selects a metric from the slicer 
 ```Column chart title = SELECTEDVALUE(Slc_values[Values]) & "YTD vs PYTD | Month"```
 
 4. Dynamic slicer selection.
-Power BI has built-in slicers, but they cannot switch between different measures (e.g., Sales, Quantity, Gross Profit). Instead, we created a disconnected table and used DAX to dynamically select the chosen metric.
+Power BI has built-in slicers, but they cannot switch between different measures (e.g., Sales, Quantity, Gross Profit). Instead, I created a disconnected table and used DAX to dynamically select the chosen metric.
 This approach ensures that all visuals update correctly when switching between KPIs. 
 
 - First of all, a slicer table was created. The slicer table contains predefined options:
