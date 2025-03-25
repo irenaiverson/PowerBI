@@ -43,8 +43,8 @@ To compute PYTD Sales, I used SAMEPERIODLASTYEAR, but with an additional filter 
 
 ```PYTD_Sales = CALCULATE( [Sales], SAMEPERIODLASTYEAR(Dim_Date[Date]), Dim_Date[Inpast] = TRUE() )```
 
-3. Dynamic title measure 
-This measure ensures that when a user selects a metric from the slicer (Sales, Quantity, or Gross Profit), the title of the visualization automatically updates to reflect the chosen KPI, providing a clear and interactive reporting experience.
+3. Dynamic title measure. 
+SELECTEDVALUE measure ensures that when a user selects a metric from the slicer (Sales, Quantity, or Gross Profit), the title of the visualization automatically updates to reflect the chosen KPI, providing a clear and interactive reporting experience.
 
 ```Column chart title = SELECTEDVALUE(Slc_values[Values]) & "YTD vs PYTD | Month"```
 
